@@ -1,0 +1,66 @@
+{
+  "project_title": "Used Car Price Prediction",
+  "dataset_file": "data/used_cars.csv",
+  "dataset_currency": "USD",
+  "mileage_unit": "miles",
+  "source_rows": 4009,
+  "rows_used": 4009,
+  "columns_in_source": 12,
+  "duplicate_rows": 0,
+  "missing_values_by_column": {
+    "model_year": 0,
+    "milage": 0,
+    "brand": 0,
+    "model": 0,
+    "fuel_type": 170,
+    "engine": 0,
+    "transmission": 0,
+    "ext_col": 0,
+    "int_col": 0,
+    "accident": 113,
+    "clean_title": 596,
+    "price": 0
+  },
+  "unique_brands": 57,
+  "unique_models": 1898,
+  "model_year_min": 1974,
+  "model_year_max": 2024,
+  "mileage_min": 100.0,
+  "mileage_median": 52775.0,
+  "mileage_max": 405000.0,
+  "price_min_usd": 2000.0,
+  "price_median_usd": 31000.0,
+  "price_mean_usd": 44553.190321776005,
+  "price_max_usd": 2954083.0,
+  "split": {
+    "train": 2806,
+    "validation": 401,
+    "test": 802
+  },
+  "model": "CatBoostRegressor",
+  "target_transform": "log1p(price); inverse transform with expm1 for predictions",
+  "best_validation_iteration": 978,
+  "final_model_iterations": 979,
+  "overall_test_metrics": {
+    "mae_usd": 17645.468403812705,
+    "rmse_usd": 125945.9581080496,
+    "r2": 0.11509581844126682,
+    "median_absolute_error_usd": 5134.368831711987,
+    "median_absolute_percentage_error": 18.752138983200737,
+    "sample_count": 802
+  },
+  "typical_price_segment_up_to_200k_usd": {
+    "mae_usd": 9047.94406816847,
+    "rmse_usd": 15577.758570813889,
+    "r2": 0.74019131389615,
+    "median_absolute_error_usd": 5005.936655066716,
+    "median_absolute_percentage_error": 18.490162491653685,
+    "sample_count": 785
+  },
+  "notes": [
+    "R2 is a regression goodness-of-fit metric, not classification accuracy.",
+    "The full test set includes a small number of very high-priced rare listings that strongly affect RMSE and R2.",
+    "The typical-price segment is a separately reported subset where actual test price is <= USD 200,000.",
+    "Predictions are estimates from this supplied US-market dataset, not guaranteed selling prices."
+  ]
+}
